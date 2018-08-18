@@ -110,10 +110,8 @@ int main(){
     ull score11, score12, score21, score22;
     string s;
     string line;
-    int linenb = 0;
     if (inFile.is_open()){
         while(getline(inFile, line)){
-            linenb++;
             player1 = ZERO;
             player2 = ZERO;
             stringstream hand(line);
