@@ -19,14 +19,14 @@ void add(int* i1, int* i2, int S){
         while(c > 0){
             j++;
             if(j >= S){
-                cout << "OVERFLOW" << endl;
+                cout << "OVERFLOW ADD" << endl;
                 exit(1);
             }
             u = i1[j] + c;
             r = u%10;
             c = u/10;
             i1[j] = r;
-        }    
+        }
     }
 }
 
