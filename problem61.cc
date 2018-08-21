@@ -34,6 +34,8 @@ int main(){
         }
     }
 
+    // Backtracking variables.
+
     int ib=0;
     int back[6];
     int opts[6][N+1];
@@ -54,13 +56,10 @@ int main(){
 
     while(ib<6){
         if(ib<0){
-            cerr << "ib is negative" << endl;
+            cerr << "No solution found" << endl;
             exit(1);
         }
         i = back[ib];
-        for(u=0; u<ib; u++)
-            cout << opts[back[u]][i_opts[back[u]]] << " ";
-        cout << endl;
         if(i==6){
             // backtrack
             back[ib] = 0;
@@ -96,7 +95,6 @@ int main(){
             if(nbs[i][j] == 0)
                 break;
             if((lastd==-1 || nbs[i][j]/100 == lastd%100) && (ib != 5 || nbs[i][j]%100 == opts[back[0]][i_opts[back[0]]]/100)){
-                assert(count < N+1);
                 opts[i][count] = nbs[i][j]; count++;
             }
         }
@@ -109,9 +107,9 @@ int main(){
             i_opts[i] = 0;
             ib++;
             back[ib]=0;
-
         }
     }
+
     int res=0;
     for(u=0; u<ib; u++){
         cout << opts[back[u]][i_opts[back[u]]] << "(" << back[u]+3 << ")" << " ";
